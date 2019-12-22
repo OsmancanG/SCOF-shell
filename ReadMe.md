@@ -22,11 +22,11 @@ Setting all the files in the SCOF shell project is easy:
 $ cd scof_shell
 $ make
 ```
-After some output later you can execute shell with :
+It launch itself after make process you can use:
 ```shell
-$ ./scof_shell
+$ ./shell
 ```
-after that 
+But for better pathing we recommend make start. 
 Welcome to SCOF shell
 
 
