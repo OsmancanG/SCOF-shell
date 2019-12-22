@@ -12,7 +12,7 @@ $ sudo apt-get install git
 ```
 After installing github you can clone repository like this:
 ```shell
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+$ git clone https://github.com/osmancan98/SCOF-shell.git
 ```
 If you have output done well everything is done.
 
