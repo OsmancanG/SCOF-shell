@@ -1,0 +1,20 @@
+.TH CRYPTO 1
+.SH NAME
+CRYPTO \- decryption and encryption for a text file.
+.SH SYNOPSIS
+.B crypto
+[\fB\-enc\fR]
+.IR oldfile
+.IR encryptedfile
+\n
+.B crypto
+[\fB\-dec\fR]
+.IR encryptedfile
+.IR keyfile
+.IR decryptedfile
+.SH DESCRIPTION
+Encryption is based on shifting char number to space. Decryption is shifting back char number from space.
+.SH OPTIONS
+.TP
+.BR \-enc ", " \-dec 
+enc for encryption, dec for decrytion.
