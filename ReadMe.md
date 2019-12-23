@@ -1,5 +1,5 @@
 # SCOF Shell
-This Project is a shell program that capable to run hardly coded process in a loop.  These Process are usually for file system and based on text or C files in a system. In these codes you can find process that encrypt a text to generating make files for your favorite C files.
+This Project is a shell program that capable to run hardly coded process in a loop.  These processes are usually used for file system and based on text or C files in a system. In these codes you can find processes from encrypting a text file to generating make files for your favorite C files.
 
 ## Getting Started
 ### *Installing Git Files*
@@ -10,11 +10,11 @@ First you should install Github:
 ```shell
 $ sudo apt-get install git
 ```
-After installing github you can clone repository like this:
+After installing github you can clone the repository like this:
 ```shell
 $ git clone https://github.com/osmancan98/SCOF-shell.git
 ```
-If you have output done well everything is done.
+If you have output done well everything is fine.
 
 ### *Setting files*
 Setting all the files in the SCOF shell project is easy:
@@ -22,34 +22,33 @@ Setting all the files in the SCOF shell project is easy:
 $ cd scof_shell
 $ make
 ```
-It launch itself after make process you can use:
+It launches itself after make process you can use:
 ```shell
 $ ./shell
 ```
-But for better pathing we recommend make start. 
 Welcome to SCOF shell
 
 
 ## Functions
  - **MakeGen**:
- Makegen is function that able to generate makefile for C files and headers. For success process all  C and Header files should be on the same path since this function just can process on current path, you should change directory.
+ Makegen is a function that ables to generate makefile for C files and headers. To obtain a successful process, all C and Header files have to be on the same path since this function just can process on current path. Otherwise, you should change the directory.
  ```shell
 $ makegen  
   ```
   - **Encryption and Decryption**:
-  Security is really import for your file so we present you a function that encrypt and decrypt a file. For encrypt we choose to shift all char numbers to space and keep the key in the another file for decryption.
+  Security is really important for your files, so we present to you a function that encrypts and decrypts a file. Encryption is a shifting process in ASCII representation of all characters. The shifted version is a key file that is used for decryption. Therewithal, decryption is used to obtain the original file from the key file.
 ```shell
 \\For encryption 
 $ crypto -enc hello.txt encryptedfile.txt 
 \\For decryption
-$ crypto -dec encryptedfile.txt key.txt decrypted.txt
+$ crypto -dec key.txt encryptedfile.txt decrypted.txt
 ```
  - **File System GUI**:
-	This GUI provides you basic operations for get information about directory and files like .txt i.e. Also you can add directory and file. 
+	This GUI provides you basic operations for getting an information about directories and files like .txt, .c etc. Also, you can add a directory or a file. 
  ```bash
 $ filesys
  ```
-using this GUI is really easy GUI  when its open its output will be like this:
+using this GUI is really easy. When it opens, its output will be like:
 ```bash
 ********************************
 ---------------------------------
@@ -63,7 +62,7 @@ using this GUI is really easy GUI  when its open its output will be like this:
 ----------------------------------
 Type help to see functions.
 ```
-In this GUI you can see size of files and directory and by typing name of direction or file you can change path or get information about that file. For additional operation you can use fcreate which create a file and dcreate which create a directory. Usage of both functions are in below:
+In this GUI you can see the size of files and directories. By typing the name of the direction, you can change the path. Likewise, you can get an information about a file with typing its name. For additional operations, you can use "fcreate" to create a file and "dcreate" to create a directory. Usage of both functions are in below:
 
 ```bash
 fcreate mytextfile.txt 
@@ -72,7 +71,7 @@ dcreate mydirectory
 
 - **Histed**:
 
-Histed is a function that able to move, copy or remove files that older then you want. Usage of this is easy:
+Histed is a function that ables to move, copy or remove files that is older then you want. Usage of the function is easy:
 
  ```bash 
  histed -d 10 mv
@@ -80,12 +79,19 @@ Histed is a function that able to move, copy or remove files that older then you
  histed -y 1 rm
 ```
 You can use 3 time options and 3 command option. For time option you can choose:
+
 -d : for a day
+
 -m : for a month
+
 -y: for a year
+
 Also you have command option:
+
 mv for moving the files
+
 cp for copying the files
+
 rm for removing the files (use as of your risk)
 (Our project will not take any responsibilities for removed files it works just in one direction and it doesn't remove recursively.)
 
