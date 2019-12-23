@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define PATH "/home/osman/Desktop/project_System/FinalProject"
+#define PATH "/home/osman/Desktop/FinalProject"
 #define LSH_RL_BUFSIZE 1024
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
@@ -44,6 +44,7 @@ int execute(char **args){
 	
 	char *cmdargs[] = {
         PATH "/C_files/Makecreator/makegen",
+	args[1],
         NULL};    
         
         char *cmdargsen[] = {
