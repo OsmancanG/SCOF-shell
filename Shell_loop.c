@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#define PATH "/home/osman/Desktop/FinalProject"
+#define PATH "/home/osman/Desktop/project_System/FinalProject"
 #define LSH_RL_BUFSIZE 1024
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
@@ -106,7 +106,7 @@ int execute(char **args){
 		}
 		
 		
-		if(strcmp(args[0],"histed")==0){
+		else if(strcmp(args[0],"histed")==0){
 				 c_pid =fork();
 			if(c_pid == 0){
 				execvp(cmdhisted[0], cmdhisted);
@@ -123,7 +123,7 @@ int execute(char **args){
 		
 		}
         //Makefile Generator
-        if(strcmp(args[0],"makegen")==0){
+       else if(strcmp(args[0],"makegen")==0){
 			c_pid =fork();
 			if(c_pid == 0){
 				execv(cmdargs[0],cmdargs); 
@@ -140,7 +140,7 @@ int execute(char **args){
 		}
 		
 		 //encryption and Decryption Generator
-        if(strcmp(args[0],"crypto")==0){
+       else if(strcmp(args[0],"crypto")==0){
 			if(strcmp(args[1],"-dec")==0){
 			c_pid =fork();
 			if(c_pid == 0){
@@ -156,7 +156,7 @@ int execute(char **args){
 					_exit(1);
 				}
 		}
-		if(strcmp(args[1],"-enc")==0){
+		else if(strcmp(args[1],"-enc")==0){
 			c_pid =fork();
 			if(c_pid == 0){
 				execv(cmdargsen[0],cmdargsen); 
@@ -170,10 +170,11 @@ int execute(char **args){
 					perror("fork failed");
 					_exit(1);
 				}
-		}
+		}else {
+			printf("Crypto needs an option");}
 	}
 	
-		if(strcmp(args[0],"help") == 0){
+	else if(strcmp(args[0],"help") == 0){
 			printf("\e[1;1H\e[2J");
 			printf("Welcome to help don't worry you are not alone here\n\n");
 			printf("Available commands:\n");
@@ -188,7 +189,7 @@ int execute(char **args){
 		 }
 			
 		
-		if(strcmp(args[0],"man")==0){
+		else if(strcmp(args[0],"man")==0){
 			c_pid =fork();
 		if(c_pid == 0){
 			if(strcmp(args[1],"filesys")==0){
@@ -212,19 +213,21 @@ int execute(char **args){
 		}
 		
 		
-		if(strcmp(args[0],"cd")==0){
+		else if(strcmp(args[0],"cd")==0){
 			chdir(args[1]);
 			return 0;
 		}
 		
-		if(strcmp(args[0],"clean")==0){
+		else if(strcmp(args[0],"clean")==0){
 			printf("\e[1;1H\e[2J");
 			return 0;
 		}
 		
-		if(strcmp(args[0],"exit")==0){
+		else if(strcmp(args[0],"exit")==0){
 			return 1;
 		}
+		else{
+			printf("There is no such function as %s\n",args[0]);}
 		
 		
 	return 0;

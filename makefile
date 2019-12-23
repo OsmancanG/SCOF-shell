@@ -13,8 +13,6 @@ makegen:
 	
 pathing:
 	 bash pathchanger.sh
-	 $(eval export MYPATH=$(shell pwd))
-	 @echo ${MYPATH}
 	
 clean:
 	rm -r ./C_files/Makecreator/makegen ./C_files/encryption/decryption ./C_files/encryption/encryption ./shell
