@@ -78,7 +78,7 @@ Histed is a function that ables to move, copy or remove files that is older then
  histed -m 3 cp
  histed -y 1 rm
 ```
-You can use 3 time options and 3 command option. For time option you can choose:
+You can use 3 time options and 3 command options. For time options you can choose:
 
 -d : for a day
 
@@ -93,7 +93,7 @@ mv for moving the files
 cp for copying the files
 
 rm for removing the files (use as of your risk)
-(Our project will not take any responsibilities for removed files it works just in one direction and it doesn't remove recursively.)
+(Our project will not take any responsibilities for removed files it works just in one direction and it doesn't work recursively.)
 
 - **other functions**:
 For more help you can use
@@ -107,5 +107,4 @@ For more help you can use
   * **Feyza Türker** - *Report, Encryption, Decryption* - [FeyzaTürker](https://www.linkedin.com/in/feyza-t%C3%BCrker-547a20153/):
   * **Oğuz Baykut** - *File System GUI, OldEdit , Github* - [OğuzBaykut](https://www.linkedin.com/in/o%C4%9Fuz-baykut-1746b014a/):
 * **Osman Can Güdül** - *MakeFile generator, ReadMe File , Shell Loop* - [OsmanCanGüdül](https://www.linkedin.com/in/osman-can-g%C3%BCd%C3%BCl-989963169/):
-  ## Others
   
