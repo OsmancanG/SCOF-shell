@@ -1,3 +1,6 @@
+## Version 1.3
+### Bug Fixed
+- Fixed a bug in makegen 
 
 ## Version 1.3
 ### Enhancements
