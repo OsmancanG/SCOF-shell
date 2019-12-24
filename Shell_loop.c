@@ -6,9 +6,6 @@
 #include <string.h>
 #include <limits.h>
 #define PATH "/home/osman/Desktop/FinalProject"
-#define LSH_RL_BUFSIZE 1024
-#define LSH_TOK_BUFSIZE 64
-#define LSH_TOK_DELIM " \t\r\n\a"
 
 
 void shell_loop(void);
@@ -29,12 +26,13 @@ void shell_loop(void)
     printf("%s >> ",cwd);
 	}
     line = readline();
-    if(strlen(line) != 0){
+    if(strcmp(line,"\n") != 0){
     args = getargs(line);
     status=execute(args);
     free(line);
+	free(args);
 }
-    free(args);
+
   } while (status==0);
 }
 
@@ -250,30 +248,30 @@ char *readline(void)
 // In a line our program needs to get arguments in the line. getargs checking tabs and space for seperating arguments. 
 char **getargs(char *line)
 {
-  int bufsize = LSH_TOK_BUFSIZE, position = 0;
+  int bufsize = 64, position = 0;
   char **tokens = malloc(bufsize * sizeof(char*));
   char *token;
 
   if (!tokens) {
-    fprintf(stderr, "lsh: allocation error\n");
+    fprintf(stderr, "SCOF: can't find argumants\n");
     exit(EXIT_FAILURE);
   }
 
-  token = strtok(line, LSH_TOK_DELIM);
+  token = strtok(line, " \t\r\n\a");
   while (token != NULL) {
     tokens[position] = token;
     position++;
 
     if (position >= bufsize) {
-      bufsize += LSH_TOK_BUFSIZE;
+      bufsize += 64;
       tokens = realloc(tokens, bufsize * sizeof(char*));
       if (!tokens) {
-        fprintf(stderr, "lsh: allocation error\n");
+        fprintf(stderr, "SCOF: can't split args\n");
         exit(EXIT_FAILURE);
       }
     }
 
-    token = strtok(NULL, LSH_TOK_DELIM);
+    token = strtok(NULL, " \t\r\n\a");
   }
   tokens[position] = NULL;
   return tokens;
