@@ -11,12 +11,13 @@
 #define LSH_TOK_DELIM " \t\r\n\a"
 
 
-void lsh_loop(void);
-char *lsh_read_line(void);
-char **lsh_split_line(char *);
+void shell_loop(void);
+char *readline(void);
+char **getargs(char *);
 int execute(char **);
 
-void lsh_loop(void)
+//This is a loop  of shell loop has a basic timeline (getline->splitargs->execute)
+void shell_loop(void)
 {
   char *line;
   char **args;
@@ -27,9 +28,9 @@ void lsh_loop(void)
 	if (getcwd(cwd,sizeof(cwd)) != NULL){
     printf("%s >> ",cwd);
 	}
-    line = lsh_read_line();
+    line = readline();
     if(strlen(line) != 0){
-    args = lsh_split_line(line);
+    args = getargs(line);
     status=execute(args);
     free(line);
 }
@@ -38,6 +39,7 @@ void lsh_loop(void)
 }
 
 
+//executing files are works with execpv or execv but for a succesfull process they must open as a child process and fork() does it for as.
 int execute(char **args){
 	pid_t c_pid,pid;
 	int status;
@@ -189,7 +191,7 @@ int execute(char **args){
 			printf("For more option you can check their manual by typing man [function] .\n\n");
 		 }
 			
-		
+		// Manuals
 		else if(strcmp(args[0],"man")==0){
 			c_pid =fork();
 		if(c_pid == 0){
@@ -235,7 +237,8 @@ int execute(char **args){
 		
 }
 
-char *lsh_read_line(void)
+// Readline is made by getline function.
+char *readline(void)
 {
   char *line = NULL,shell_prompt[100];
   ssize_t bufsize = 0; // have getline allocate a buffer for us
@@ -243,7 +246,9 @@ char *lsh_read_line(void)
   return line;
 }
 
-char **lsh_split_line(char *line)
+
+// In a line our program needs to get arguments in the line. getargs checking tabs and space for seperating arguments. 
+char **getargs(char *line)
 {
   int bufsize = LSH_TOK_BUFSIZE, position = 0;
   char **tokens = malloc(bufsize * sizeof(char*));
@@ -274,9 +279,10 @@ char **lsh_split_line(char *line)
   return tokens;
 }
 
+
 int main(){
 printf("\e[1;1H\e[2J");
-lsh_loop();
+shell_loop();
 printf("\e[1;1H\e[2J");
 return 0;
 }
