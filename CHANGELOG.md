@@ -1,3 +1,7 @@
+## Version 1.5
+### Bug Fixed
+- Fixed bug when pressing enter without typing any function.
+
 ## Version 1.4
 ### Bug Fixed
 - Fixed a bug in makegen 
